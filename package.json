@@ -8,7 +8,8 @@
     "start": "node app.js"
   },
   "dependencies": {
+    "ejs": "*",
     "express": "3.2.2",
-    "ejs": "*"
+    "session-mongoose": "^0.5.2"
   }
 }

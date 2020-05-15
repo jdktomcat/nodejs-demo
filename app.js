@@ -1,23 +1,21 @@
-
 /**
  * Module dependencies.
  */
+const express = require('express')
+    , routes = require('./routes')
+    , user = require('./routes/user')
+    , movie = require('./routes/movie')
+    , http = require('http')
+    , path = require('path')
+    , ejs = require('ejs')
+    , SessionStore = require("session-mongoose")(express);
 
-var express = require('express')
-  , routes = require('./routes')
-  , user = require('./routes/user')
-  , movie = require('./routes/movie')
-  , http = require('http')
-  , path = require('path')
-  , ejs = require('ejs')
-  , SessionStore = require("session-mongoose")(express);
-
-var store = new SessionStore({
+const store = new SessionStore({
     url: "mongodb://localhost/session",
     interval: 120000 // expiration check worker run interval in millisec (default: 60000)
 });
 
-var app = express();
+const app = express();
 
 // all environments
 app.set('port', process.env.PORT || 3000);
